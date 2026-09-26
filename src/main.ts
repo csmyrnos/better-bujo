@@ -424,6 +424,10 @@ export default class BetterBujoPlugin extends Plugin {
 		if (!(input instanceof HTMLInputElement) || !input.classList.contains('task-list-item-checkbox')) {
 			return;
 		}
+		// Don't hijack checkboxes inside Tasks plugin query blocks
+		if (input.closest('.block-language-tasks')) {
+    		return;
+		}
 		const marker = input.closest('[data-task]')?.getAttribute('data-task');
 		let regex: RegExp;
 		let next: (cur: string) => string;
