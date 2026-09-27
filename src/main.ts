@@ -425,7 +425,7 @@ export default class BetterBujoPlugin extends Plugin {
 			return;
 		}
 		// Don't hijack checkboxes inside Tasks plugin query blocks
-		if (input.closest('.block-language-tasks')) {
+		if (input.closest('.block-language-tasks, .block-language-dataview, .block-language-dataviewjs')) {
     		return;
 		}
 		const marker = input.closest('[data-task]')?.getAttribute('data-task');
